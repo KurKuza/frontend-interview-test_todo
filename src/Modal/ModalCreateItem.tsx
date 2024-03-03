@@ -61,6 +61,7 @@ export const ModalCreateItem: React.FC<ModalCreateItemProps> = ({
         clearState={clearState}
         submitBtnText="Создать"
         size="large"
+        // лучше отрефакторить, выведя это в отдельную функцию
         onSubmit={
           name
             ? () => {
@@ -70,7 +71,8 @@ export const ModalCreateItem: React.FC<ModalCreateItemProps> = ({
                     : tasksAdded({
                         name,
                         description,
-                        category: setSelected,
+                        // терялась категория
+                        category: setSelected(selected),
                       })
                 );
                 clearState();

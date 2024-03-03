@@ -13,6 +13,18 @@ export const ModalBtn: React.FC<ModalBtnProps> = ({
   size,
   onClick,
 }) => {
+  //! Лучше использовать, а вложенные тернарники это плохо
+  // const classMap = {
+  //   primary: {
+  //     large: "modalbtn primary large",
+  //     default: "modalbtn primary",
+  //   },
+  //   default: "modalbtn",
+  /*
+  getClass = (type, size) => {
+    return classMap[type][size] || classMap[type] || classMap.default
+  }
+  */
   const btnClass =
     type === "primary"
       ? size === "large"
@@ -20,6 +32,7 @@ export const ModalBtn: React.FC<ModalBtnProps> = ({
         : "modalbtn primary"
       : "modalbtn";
   return (
+    //classMap[type][size] || classMap[type] || classMap.default
     <button className={btnClass} onClick={onClick}>
       {children}
     </button>

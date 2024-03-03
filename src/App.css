@@ -10,8 +10,10 @@ html {
   display: flex;
   justify-content: space-between;
   width: 1000px;
-  height: 80px;
+  /* при длинном тексте, текст уходит за края экрана */
+  height: fit-content;
   border-bottom: 2px solid #3f72af;
+  gap: 15px;
 }
 
 .list-item:hover {
@@ -22,6 +24,8 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* нужно для того, чтобы текст не выходил за края и не выдавливал боковую панель с редактированием */
+  width: 95%;
 }
 
 .list-item-col1-row1 {
@@ -55,8 +59,19 @@ html {
   font-weight: 400;
   font-size: 18px;
   line-height: 20px;
+  /* Можно добавить, чтобы текст выгладил красивее, за счет правильных переносов */
+  text-wrap: balance;
+  /* нужно чтобы разорвать длинное слово */
+  overflow-wrap: break-word;
 }
-
+.list-item-col2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  gap: 6px;
+}
 .list-item-col2__btn {
   cursor: pointer;
   box-sizing: border-box;
@@ -64,8 +79,4 @@ html {
   height: 25px;
   border: none;
   background: transparent;
-}
-
-.list-item-col2__btn:first-child {
-  margin-right: 15px;
 }
